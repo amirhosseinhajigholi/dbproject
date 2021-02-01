@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    
+
+    <!-- <ul>
+    {% for product in products %}
+    <form method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="pk" value="{{product.pk}}">
+        <li>{{ product.name }} , {{ product.price }}</li>
+        <input type="submit" value="X">
+    </form>
+    {% endfor %}
+    </ul> -->
+
+    
+
+   
+      
+      <!-- <button type="submit"  class="btn btn-secondary btn-sm" >Addd</button> -->
+    
+
+
+    
+    
+    <table class="table">
+        <thead>
+        
+  
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Product</th>
+            <th scope="col">Price</th>
+            <th scope="col">brand</th>
+            <th scope="col">in cart</th>
+            <th scope="col">Action</th>
+          </tr>
+
+        </thead>
+        
+        <tbody>
+          <tr>
+              
+              {% for product in products %}
+              <tr>
+                <th scope="row"></th>  <!-- mikham {{ product.pk }} bzrm inja vali ba khali nmishe -->
+                <td>{{ product.name }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.brand }}</td>
+                <td>{{ product.PR_number }}</td>
+                <td>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="pk" value="{{product.pk}}">
+
+                        <input type="submit" class="btn btn-primary" value="add to cart">
+                    </form></td><td>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="pj" value="{{product.pk}}">
+
+                        <input type="submit" class="btn btn-danger" value="remove">
+                    </form>
+                </td>
+               
+              </tr>
+              {% endfor %}
+              <tr>
+                <th scope="row"></th>  
+                <td>Total = </td>
+                <td>{{ Product }}</td>
+                <td>order by :</td>
+                <form method="POST">
+                  {% csrf_token %}
+                <td>
+                <select name = "buyer" class="custom-select">
+                      
+                     {% for costumer in Costumers %}
+                      <option value= {{costumer.Cname }} >{{ costumer.Cname }} </option>
+                      
+                   {% endfor %}
+                </select>
+                  </td>
+                
+                  <td>
+                  <input type="hidden" name="addd" value="{{product.pk}}">
+                    <input type="submit" class="btn btn-secondary btn-sm" value="Add">
+                  </td>
+                  <td>
+                  <input type="hidden" name="clear" value="{{product.pk}}">
+                    <input type="submit" class="btn btn-warning" value="clear cart">
+                  </td>
+                  
+          
+          
+              </form>
+              
+                
+                
+                
+                
+                </td>
+
+                </tr>
+
+              
+            
+
+            
+        </tbody>
+      </table>
+
+    
+</body>
+</html>

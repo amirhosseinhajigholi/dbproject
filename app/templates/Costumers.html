@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    
+
+    <!-- <ul>
+    {% for product in products %}
+    <form method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="pk" value="{{product.pk}}">
+        <li>{{ product.name }} , {{ product.price }}</li>
+        <input type="submit" value="X">
+    </form>
+    {% endfor %}
+    </ul> -->
+
+    
+
+   
+      
+      <!-- <button type="submit"  class="btn btn-secondary btn-sm" >Addd</button> -->
+    
+
+
+    
+    
+    <table class="table">
+        <thead>
+       
+  
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">email</th>
+            <th scope="col">username</th>
+            <th scope="col">password</th>
+            <th scope="col">Action</th>
+          </tr>
+
+        </thead>
+        
+        <tbody>
+          <tr>
+              
+              {% for costumer in costumers %}
+              <tr>
+                <th scope="row"></th>  <!-- mikham {{ product.pk }} bzrm inja vali ba khali nmishe -->
+                <td>{{ costumer.Cname }}</td>
+                <td>{{ costumer.email }}</td>
+                <td>{{ costumer.username }}</td>
+                <td>{{ costumer.password }}</td>
+                <td>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="plk" value="{{costumer.pk}}">
+
+                        <input type="submit" class="btn btn-outline-danger" value="X">
+                    </form>
+                </td>
+               
+              </tr>
+              
+              {% endfor %}
+              <tr>
+                <form method="POST">
+                  {% csrf_token %}
+                  <th scope="row"></th>
+                  <td>
+                    <input type="text" name="Cname" placeholder="Enter name">
+                  </td>
+                  <td>
+                    <input type="email" name="email" placeholder="Enter email">
+                  </td>
+                  <td>
+                    <input type="text" name="username" placeholder="Enter username">
+                  </td>
+                  <td>
+                    <input type="text" name="password" placeholder="Enter password">
+                  </td>
+                  <td>
+                    <input type="submit" class="btn btn-secondary btn-sm" value="Add">
+                  </td>
+                  
+          
+          
+              </form>
+              </tr>
+
+            
+        </tbody>
+      </table>
+
+    
+</body>
+</html>
